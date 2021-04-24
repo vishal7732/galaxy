@@ -13,7 +13,7 @@ pygame.display.set_icon(logo) 								#for game window title
 
 exit_game = False
 game_over = False
-fps = 60
+fps = 100
 Score = 0
 lives = 5
 main_font = pygame.font.SysFont("comicsans", 50)
@@ -22,9 +22,9 @@ main_font = pygame.font.SysFont("comicsans", 50)
 background_image = pygame.transform.scale(pygame.image.load(os.path.join("images/galaxy.png")), (width, height))
 
 #rocket
-rocket = pygame.transform.scale(pygame.image.load(os.path.join("images/airplane.png")),(100,100))
+rocket = pygame.transform.scale(pygame.image.load(os.path.join("images/vaccine.png")),(50,100))
 x = 400
-y = 640
+y = 600
 
 #enemy
 enemy_ship = pygame.transform.scale(pygame.image.load(os.path.join("images/virus.png")),(60,60))
@@ -50,7 +50,7 @@ def enemy(enemyx,enemyy):
 def bullet_f(x, y):
 	global bullet_state
 	bullet_state = "fire"
-	gameWindow.blit(f_ball, (x + 35, y + 10))
+	gameWindow.blit(f_ball, (x + 15, y + 5))
 
 def shoot(enemyX, enemyY, bulletX, bulletY):
     distance = math.sqrt(math.pow(enemyX - bulletX, 2) + (math.pow(enemyY - bulletY, 2)))
