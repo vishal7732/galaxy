@@ -7,7 +7,7 @@ pygame.init()
 width = 900
 height = 750
 gameWindow = pygame.display.set_mode((width,height))        # for game window
-pygame.display.set_caption("Galaxy Wars") 					#for game window title
+pygame.display.set_caption("Corona Wars") 					#for game window title
 logo = pygame.image.load("images/f_ball.gif")
 pygame.display.set_icon(logo) 								#for game window title
 
@@ -19,20 +19,20 @@ lives = 5
 main_font = pygame.font.SysFont("comicsans", 50)
 
 #background
-background_image = pygame.transform.scale(pygame.image.load(os.path.join("images/galaxy.jpg")), (width, height))
+background_image = pygame.transform.scale(pygame.image.load(os.path.join("images/galaxy.png")), (width, height))
 
 #rocket
-rocket = pygame.transform.scale(pygame.image.load(os.path.join("images/rocket.png")),(100,100))
+rocket = pygame.transform.scale(pygame.image.load(os.path.join("images/airplane.png")),(100,100))
 x = 400
 y = 640
 
 #enemy
-enemy_ship = pygame.transform.scale(pygame.image.load(os.path.join("images/v_rocket.png")),(60,60))
+enemy_ship = pygame.transform.scale(pygame.image.load(os.path.join("images/virus.png")),(60,60))
 enemyx = random.randint(0,800)
 enemyy = 50
 
 #bullet
-f_ball = pygame.transform.scale(pygame.image.load(os.path.join("images/f_ball.gif")),(30,30))
+f_ball = pygame.transform.scale(pygame.image.load(os.path.join("images/vaccine.png")),(25,50))
 bulletX = 0
 bulletY = y
 bulletX_change = 0
@@ -81,8 +81,8 @@ while not exit_game:
 	    		bullet_f(bulletX, bulletY)
 	
 
-    lives_label = main_font.render(f"Lives: {lives}", 1, (255,255,255))  # create lives font
-    Score_label = main_font.render(f"Score: {Score}", 1, (255,255,255)) # create Score font
+    lives_label = main_font.render(f"Lives: {lives}", 1, (0,0,0))  # create lives font
+    Score_label = main_font.render(f"Score: {Score}", 1, (0,0,0)) # create Score font
     
     gameWindow.blit(background_image, [0,0])	# to display background image
     gameWindow.blit(lives_label, (10,10))	# to display lives on scree
@@ -114,8 +114,6 @@ while not exit_game:
     	bulletY = 480
     	bullet_state = "ready"
 
-    if Score == 5:
-    	fps = 500
 
     pygame.display.flip()
     clock.tick(fps)
